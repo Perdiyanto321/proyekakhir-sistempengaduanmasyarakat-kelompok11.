@@ -3,6 +3,7 @@ CREATE TABLE users (
     nama VARCHAR(100),
     email VARCHAR(100) UNIQUE,
     PASSWORD VARCHAR(255),
+    ROLE ENUM('user', 'email'),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -32,3 +33,6 @@ CREATE TABLE tanggapan (
     FOREIGN KEY (laporan_id) REFERENCES laporan(id)
     ON DELETE CASCADE
 );
+
+INSERT INTO users (nama, email, PASSWORD, ROLE) VALUES
+('admin1', 'admin1@gmail.com', 'admin123', 'admin')
