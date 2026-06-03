@@ -3,7 +3,7 @@ CREATE TABLE users (
     nama VARCHAR(100),
     email VARCHAR(100) UNIQUE,
     PASSWORD VARCHAR(255),
-    ROLE ENUM('user', 'email'),
+    ROLE ENUM('user', 'admin'),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -14,7 +14,7 @@ CREATE TABLE laporan (
     isi TEXT,
     lokasi VARCHAR(255),
     foto VARCHAR(255),
-    STATUS ENUM('menunggu','proses','selesai') DEFAULT 'menunggu',
+    STATUS ENUM('menunggu','proses','selesai', 'ditolak') DEFAULT 'menunggu',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
     FOREIGN KEY (user_id) REFERENCES users(id)
