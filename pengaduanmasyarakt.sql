@@ -21,9 +21,6 @@ CREATE TABLE laporan (
     ON DELETE CASCADE
 );
 
-ALTER TABLE laporan 
-MODIFY STATUS ENUM('menunggu','proses','selesai', 'ditolak') DEFAULT 'menunggu';
-
 CREATE TABLE tanggapan (
     id INT AUTO_INCREMENT PRIMARY KEY,
     laporan_id INT,
